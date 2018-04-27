@@ -11,6 +11,10 @@ class Customer
     @funds = options['funds'].to_i
   end
 
+  def pay_for_film(film)
+    @funds -= film.price
+  end
+
   def save()
     sql = "INSERT INTO customers (name, funds)
     VALUES ($1, $2)
