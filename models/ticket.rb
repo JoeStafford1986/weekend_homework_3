@@ -37,6 +37,11 @@ class Ticket
     SqlRunner.run(sql, values)
   end
 
+  def self.create(customer, film)
+    new_ticket = Ticket.new({'customer_id' => customer.id, 'film_id' => film.id})
+    new_ticket.save()
+  end
+
   def self.all()
     sql = "SELECT * FROM tickets"
     ticket_data = SqlRunner.run(sql)

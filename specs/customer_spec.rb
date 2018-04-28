@@ -3,6 +3,7 @@ require('minitest/rg')
 
 require_relative('../models/customer')
 require_relative('../models/film')
+require_relative('../models/ticket')
 
 class CustomerTest < MiniTest::Test
 
@@ -20,10 +21,11 @@ class CustomerTest < MiniTest::Test
     assert_equal(8, @customer1.funds)
   end
 
-  # def test_get_ticket_count
-  #   @customer1.save()
-  #
-  #   assert_equal()
-  # end
+  def test_get_ticket_count
+    @customer1.save()
+    @film1.save()
+    Ticket.create(@customer1, @film1)
+    assert_equal(1, @customer1.films().count)
+  end
 
 end
