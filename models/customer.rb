@@ -52,6 +52,14 @@ class Customer
     return Film.map_items(film_data)
   end
 
+  def tickets()
+    sql = "SELECT * FROM tickets
+    WHERE customer_id = $1"
+    values = [@id]
+    ticket_data = SqlRunner.run(sql, values)
+    return Ticket.map_items(ticket_data)
+  end
+
   def self.all()
     sql = "SELECT * FROM customers"
     customer_data = SqlRunner.run(sql)
