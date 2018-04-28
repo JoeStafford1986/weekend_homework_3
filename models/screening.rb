@@ -21,6 +21,13 @@ class Screening
     @id = screening['id'].to_i
   end
 
+  def delete()
+    sql = "DELETE FROM screenings
+    WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.all()
     sql = "SELECT * FROM screenings"
     screening_data = SqlRunner.run(sql)
@@ -30,6 +37,11 @@ class Screening
   def self.map_items(screening_data)
     result = screening_data.map { |screening| Screening.new( screening ) }
     return result
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM screenings"
+    SqlRunner.run(sql)
   end
 
 end
