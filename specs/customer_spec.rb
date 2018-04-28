@@ -34,4 +34,9 @@ class CustomerTest < MiniTest::Test
     assert_equal(1, @customer1.films().count)
   end
 
+  def test_get_ticket_count__no_tickets
+    @customer1.save()
+    assert_equal(0, @customer1.films().count)
+  end
+
 end
