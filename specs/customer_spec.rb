@@ -9,6 +9,7 @@ class CustomerTest < MiniTest::Test
 
   def setup
     @customer1 = Customer.new({'name' => 'Joe Stafford', 'funds' => 10})
+    @customer2 = Customer.new({'name' => 'Joseph Stafford', 'funds' => 1})
     @film1 = Film.new({'title' => 'Dr Strangelove', 'price' => 2})
   end
 
@@ -19,6 +20,11 @@ class CustomerTest < MiniTest::Test
   def test_pay_for_film
     @customer1.pay_for_film(@film1)
     assert_equal(8, @customer1.funds)
+  end
+
+  def test_pay_for_film__not_enough_funds
+    @customer2.pay_for_film(@film1)
+    assert_equal(1, @customer2.funds)
   end
 
   def test_get_ticket_count

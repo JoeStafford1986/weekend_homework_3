@@ -12,6 +12,7 @@ class Customer
   end
 
   def pay_for_film(film)
+    return if @funds < film.price
     @funds -= film.price
     update()
   end
