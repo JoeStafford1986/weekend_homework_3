@@ -55,6 +55,7 @@ screening3 = Screening.new({
   'capacity' => 10,
   'film_id' => film1.id
   })
+  
 screening1.save()
 screening2.save()
 screening3.save()
