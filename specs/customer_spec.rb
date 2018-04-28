@@ -20,4 +20,10 @@ class CustomerTest < MiniTest::Test
     assert_equal(8, @customer1.funds)
   end
 
+  # def test_get_ticket_count
+  #   @customer1.save()
+  #
+  #   assert_equal()
+  # end
+
 end

@@ -13,6 +13,7 @@ class Customer
 
   def pay_for_film(film)
     @funds -= film.price
+    update()
   end
 
   def save()
