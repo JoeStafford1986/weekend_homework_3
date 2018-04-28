@@ -36,6 +36,12 @@ class Screening
     SqlRunner.run(sql, values)
   end
 
+  # def self.most_popular()
+  #   return if Screening.all().first = nil
+  #   all_screenings = Screening.all()
+  #   most_popular_screening = all_screenings.first()
+  # end
+
   def self.all()
     sql = "SELECT * FROM screenings"
     screening_data = SqlRunner.run(sql)
