@@ -5,6 +5,9 @@ require_relative('../models/film')
 require_relative('../models/ticket')
 require_relative('../models/screening')
 
+Customer.delete_all()
+Film.delete_all()
+
 customer1 = Customer.new({
   'name' => 'Joe Stafford',
   'funds' => '10'
@@ -55,7 +58,7 @@ screening3 = Screening.new({
   'capacity' => 10,
   'film_id' => film1.id
   })
-  
+
 screening1.save()
 screening2.save()
 screening3.save()
@@ -86,6 +89,8 @@ ticket2.save()
 ticket3.save()
 ticket4.save()
 ticket5.save()
+
+
 
 binding.pry
 nil
