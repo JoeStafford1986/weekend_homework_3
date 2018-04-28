@@ -20,4 +20,9 @@ class FilmTest < MiniTest::Test
     assert_equal(1, @film1.customers().count)
   end
 
+  def test_get_customer_count__no_customers
+    @film1.save()
+    assert_equal(0, @film1.customers().count)
+  end
+
 end
