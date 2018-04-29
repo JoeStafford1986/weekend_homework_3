@@ -6,8 +6,23 @@ require_relative('../models/screening')
 class ScreeningTest < MiniTest::Test
 
   def setup
-    @customer1 = Customer.new({'name' => 'Joe Stafford', 'funds' => 10})
-    @film1 = Film.new({'title' => 'Dr Strangelove', 'price' => 2})
+
+    Film.delete_all()
+    Customer.delete_all()
+
+    @customer1 = Customer.new({
+      'name' => 'Joe Stafford',
+      'funds' => 10
+      })
+
+    @customer1.save()
+
+    @film1 = Film.new({
+      'title' => 'Dr Strangelove',
+      'price' => 2
+      })
+
+    @film1.save()
   end
 
   # def test_most_popular
