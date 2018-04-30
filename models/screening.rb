@@ -51,7 +51,7 @@ class Screening
     most_popular = screenings[0]
     screenings.each do |screening|
       screening_tickets = screening.tickets()
-      if screening_tickets.count > most_popular.tickets().count
+      if screening_tickets.count > most_popular.tickets.count
         most_popular = screening
       end
     end
