@@ -1,5 +1,7 @@
 require_relative('../db/sql_runner')
 
+require('pry')
+
 class Screening
 
   attr_reader :id
@@ -36,8 +38,24 @@ class Screening
     SqlRunner.run(sql, values)
   end
 
+  def tickets()
+    sql = "SELECT * FROM tickets
+    WHERE screening_id = $1"
+    values = [@id]
+    ticket_data = SqlRunner.run(sql, values)
+    return Ticket.map_items(ticket_data)
+  end
+
   def self.most_popular()
-    
+    screenings = Screening.all()
+    most_popular = screenings[0]
+    screenings.each do |screening|
+      screening_tickets = screening.tickets()
+      if screening_tickets.count > most_popular.tickets().count
+        most_popular = screening
+      end
+    end
+    return most_popular.id
   end
 
   def self.all()

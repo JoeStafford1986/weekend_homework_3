@@ -64,7 +64,7 @@ class ScreeningTest < MiniTest::Test
     Ticket.create(@customer1,@film1, @screening1)
     Ticket.create(@customer2,@film1, @screening1)
     Ticket.create(@customer1,@film2, @screening2)
-    assert_equal(@film1, Screening.most_popular())
+    assert_equal(@screening1.id, Screening.most_popular())
   end
 
 end

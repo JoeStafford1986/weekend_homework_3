@@ -9,7 +9,7 @@ class TicketTest < MiniTest::Test
 
     Film.delete_all()
     Customer.delete_all()
-    
+
     @customer1 = Customer.new({
       'name' => 'Joe Stafford',
       'funds' => 10
@@ -51,9 +51,6 @@ class TicketTest < MiniTest::Test
   end
 
   def test_create
-    # @customer1.save()
-    # @film1.save()
-    # @screening1.save()
     Ticket.create(@customer1, @film1, @screening1)
     assert_equal(1, Ticket.all().count)
   end
